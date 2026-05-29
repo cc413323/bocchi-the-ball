@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ck7f8ybmn7848"]
+
+[ext_resource type="Script" uid="uid://bkkbcobgjacjb" path="res://scripts/tallier.gd" id="1_7ysqo"]
+
+[node name="Tallier" type="Node2D" unique_id=775845176]
+script = ExtResource("1_7ysqo")

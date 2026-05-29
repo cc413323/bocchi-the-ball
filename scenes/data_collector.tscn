@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cfr5rui66uonb"]
+
+[ext_resource type="Script" uid="uid://uaxp34x857nh" path="res://scripts/data_collector.gd" id="1_x21bs"]
+
+[node name="DataCollector" type="Node2D" unique_id=734408409 groups=["input"]]
+script = ExtResource("1_x21bs")

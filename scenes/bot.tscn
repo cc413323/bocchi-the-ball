@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cre045b0c3ule"]
+
+[ext_resource type="Script" uid="uid://loenur886h3l" path="res://scripts/bot.gd" id="1_cwism"]
+
+[node name="Bot" type="Node2D" unique_id=776360738]
+script = ExtResource("1_cwism")
