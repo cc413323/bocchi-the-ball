@@ -2,11 +2,14 @@ extends Node2D
 
 class_name Tallier
 
-var _tallies : Dictionary[int, float]
+#region variables
+var _tallies : Dictionary[int, float] = {}
 var _tallyTarget : Bot;
 var _tallyTargetModelIndex : int
 var _currentScore : float
+#endregion
 
+#region rady and process
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -15,6 +18,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+#endregion
 
 func update(change : float) -> void:
 	_currentScore += change
@@ -24,16 +28,13 @@ func getTallyTarget() -> Bot:
 
 func setTallyTarget(target: Bot, index : int) -> void:
 	_tallyTarget = target
+	_currentScore = 0
 	_tallyTargetModelIndex = index
 
 func endTallySession() -> void:
 	_tallies[_tallyTargetModelIndex] = _currentScore
-	
-	_tallyTarget = null
-	_tallies = {}
-	_currentScore = 0;
-	_tallyTargetModelIndex = -1
-	
+	print("score: " + str(_currentScore))
+
 func get_top_ten_keys() -> Array:
 	var data = _tallies
 	var keys = data.keys()
@@ -56,3 +57,23 @@ func get_top_ten_keys() -> Array:
 			top_keys[smallest_index] = current_key
 
 	return top_keys
+"""
+func get_top_ten_keys() -> Array:
+	# If there are fewer than 10 entries, just return all keys sorted
+	if _tallies.size() == 0:
+		return []
+
+	var keys = _tallies.keys()
+	# sort_custom expects a Callable; comparator will read self._tallies
+	keys.sort_custom(Callable(self, "_compare_tallies_desc"))
+	# return up to 10 keys
+	return keys.slice(0, min(10, keys.size()))
+
+	# comparator used by sort_custom: must return -1, 0, or 1
+func _compare_tallies_desc(a, b) -> int:
+	var va = _tallies.get(a, 0.0)
+	var vb = _tallies.get(b, 0.0)
+	if va == vb:
+		return 0
+	return -1 if va > vb else 1
+"""

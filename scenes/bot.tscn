@@ -1,6 +1,86 @@
 [gd_scene format=3 uid="uid://cre045b0c3ule"]
 
 [ext_resource type="Script" uid="uid://loenur886h3l" path="res://scripts/bot.gd" id="1_cwism"]
+[ext_resource type="Texture2D" uid="uid://ckw3jcx3b30d2" path="res://assets/bocchiHeadShakes/bocchiHeadShake00.png" id="2_7bc48"]
+[ext_resource type="Texture2D" uid="uid://rtsgesyvqgdg" path="res://assets/bocchiHeadShakes/bocchiHeadShake01.png" id="3_vsa51"]
+[ext_resource type="Texture2D" uid="uid://5xahe7ept8f2" path="res://assets/bocchiHeadShakes/bocchiHeadShake02.png" id="4_pdkpr"]
+[ext_resource type="Texture2D" uid="uid://c8lwkode5j4vm" path="res://assets/bocchiHeadShakes/bocchiHeadShake03.png" id="5_g7ngu"]
+[ext_resource type="Texture2D" uid="uid://bou0dd7q77q72" path="res://assets/bocchiHeadShakes/bocchiHeadShake04.png" id="6_w45w1"]
+[ext_resource type="Texture2D" uid="uid://de2pbcmt0k8j7" path="res://assets/bocchiHeadShakes/bocchiHeadShake05.png" id="7_selut"]
+[ext_resource type="Texture2D" uid="uid://d3isj78hjmr6d" path="res://assets/bocchiHeadShakes/bocchiHeadShake06.png" id="8_gowxj"]
+[ext_resource type="Texture2D" uid="uid://bwiamhknwob54" path="res://assets/bocchiHeadShakes/bocchiHeadShake07.png" id="9_tkofu"]
+[ext_resource type="Texture2D" uid="uid://bg1lonq6x1xss" path="res://assets/bocchiHeadShakes/bocchiHeadShake08.png" id="10_exwn8"]
+[ext_resource type="Texture2D" uid="uid://cr7fs6yekq56e" path="res://assets/bocchiHeadShakes/bocchiHeadShake09.png" id="11_rhire"]
+[ext_resource type="Texture2D" uid="uid://bcmkbskcxphpv" path="res://assets/bocchiHeadShakes/bocchiHeadShake10.png" id="12_6sv3g"]
+[ext_resource type="Texture2D" uid="uid://b480bwpjq4emi" path="res://assets/bocchiHeadShakes/bocchiHeadShake11.png" id="13_mhopm"]
+[ext_resource type="Texture2D" uid="uid://c20muw0kt781d" path="res://assets/bocchiHeadShakes/bocchiHeadShake12.png" id="14_0fson"]
+[ext_resource type="Texture2D" uid="uid://uvguy70letc7" path="res://assets/bocchiHeadShakes/bocchiHeadShake13.png" id="15_st8np"]
+[ext_resource type="Texture2D" uid="uid://bckrcv06jvcwj" path="res://assets/bocchiHeadShakes/bocchiHeadShake14.png" id="16_y1o1q"]
 
-[node name="Bot" type="Node2D" unique_id=776360738]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7bc48"]
+size = Vector2(54, 54)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a04oa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7bc48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vsa51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pdkpr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g7ngu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w45w1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_selut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gowxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tkofu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_exwn8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_rhire")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_6sv3g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_mhopm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_0fson")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_st8np")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_y1o1q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 40.0
+}]
+
+[node name="Bot" type="CharacterBody2D" unique_id=1653389111]
 script = ExtResource("1_cwism")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1886745466]
+shape = SubResource("RectangleShape2D_7bc48")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1313014756]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_a04oa")
+autoplay = "default"
+frame_progress = 0.48910734

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://biqa24nymnrfi"]
+
+[ext_resource type="Texture2D" uid="uid://ca7k7bjy0b5mi" path="res://assets/Screenshot 2026-05-18 045158.png" id="1_tqfh0"]
+
+[node name="Demo" type="Node2D" unique_id=15906396]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1029050827]
+scale = Vector2(1.45, 1.45)
+texture = ExtResource("1_tqfh0")
+centered = false
