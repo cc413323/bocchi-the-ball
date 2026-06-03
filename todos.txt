@@ -1,0 +1,31 @@
+Todo:
+	- modify all Vector2(0,0) to Vector2.ZERO
+	- connect the speeds of things with some scaler
+	- add a debug mode and its toggle to see the collision shapes
+	- add a demo area
+
+
+
+
+tips for modifications:
+	- to modify inputs -> 	go to bot script and modify returnInputData(allBalls : Array[Ball])
+							go to main and modify weightDims
+	- to modify outputs ->	go to bot script and modify simulate()
+							go to main script and modify weightDims
+	- to modify bias || activation func ->	go to bot script simulate()
+	- to modify rewards -> go to bot scoreChange()
+
+
+
+
+future additions:
+	- [main] back prop / reinforcement
+	- [bot] reward dodging difficult balls
+	- [bot] somehow add data of relative distance to edge of screen
+	- [bot] make returnTopDanger faster
+	- [main] reward going to certain goals
+	- 3D?
+	- adjustable speed of simulation played
+	- adjustable ball spawning frequency
+	- adjustable models
+	- able to shoot balls

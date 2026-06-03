@@ -1,0 +1,5 @@
+<- ->	rotate training speed between 1,5,10,20,50,100
+R		swap between rendering or not
+P		pause
+CTRL+T	[broken] switch to train scene
+CTRL+T	[broken] switch to demo scene
