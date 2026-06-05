@@ -1,6 +1,7 @@
+## dataWithReward001 (neuroevolution)
+### Results
+output/method_pickSomeOutOfSomeAndEvolve/dataWithReward001/WeightMs00.dat
 
-
-## dataWithReward001
 ### Setup
 #### Screen Size: 1800 by 1000
 #### Objects:
@@ -38,7 +39,7 @@ as well as the x y position of bot divided by screen size, in total 5*7+2 = 37 i
 - second one with 32 by 32 dimension, applies ReLU
 - third one with 32 by 5 dimension, applies sigmoid
 
-#### Output
+#### Output (5)
 - uses argmax, picks from up,right,down,left,stay.
 
 ### Model Generation
@@ -51,11 +52,10 @@ as well as the x y position of bot divided by screen size, in total 5*7+2 = 37 i
 - Going out of bounds   : -5 & end simulation
 - Survived this frame   : +0.01
 
-### 
-
 
 ## dataWithReward003
-### Rewards
-- Being hit by ball     : -10 & end simulation
-- Going out of bounds   : -5 & end simulation
-- Survived this frame   : +0.01
+Exactly the same as dataWithReward001 except each frame survived rewards 0.03 instead of 0.01. Reward seems more balanced than dataWithReward001.
+### Results
+output/method_pickSomeOutOfSomeAndEvolve/dataWithReward003/WeightMs00.dat (WeightMs00.dat somehow has the last matrix cut off. other than that looks fine)\
+output/method_pickSomeOutOfSomeAndEvolve/dataWithReward003/WeightMs01.dat
+
