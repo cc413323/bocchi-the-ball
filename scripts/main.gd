@@ -282,10 +282,18 @@ func generate_new_models(top : Array, dims: Array) -> Array:
 
 		# create mutated children
 		for j in range(8):
+			var rng = randf()
+			var sigma : float
+			if rng < 0.1:
+				sigma = 0.05
+			elif rng < 0.8:
+				sigma = 0.1
+			else:
+				rng = 0.3
 
-			var child_m1 = mutate_matrix(parent[0], 0.10, 0.10, xavierTyler1)
-			var child_m2 = mutate_matrix(parent[1], 0.10, 0.10, xavierTyler2)
-			var child_m3 = mutate_matrix(parent[2], 0.10, 0.10, xavierTyler3)
+			var child_m1 = mutate_matrix(parent[0], 0.10, sigma, xavierTyler1)
+			var child_m2 = mutate_matrix(parent[1], 0.10, sigma, xavierTyler2)
+			var child_m3 = mutate_matrix(parent[2], 0.10, sigma, xavierTyler3)
 
 			models.append([
 				child_m1,
