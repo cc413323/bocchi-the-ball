@@ -12,7 +12,8 @@ var BotScene = preload("res://scenes/Bot.tscn")
 
 var baseModels = []
 var weightDims = [37,32,32,32,32,5]
-var file
+var fileEvoAllGen
+var fileEvoBestGen
 var botSpeed = 100
 
 # main simulation variables
@@ -49,7 +50,7 @@ func _ready() -> void:
 	
 	status_label.text += "training speed: " + str(training_speed)
 	
-	file = FileAccess.open("res://output/method_pickSomeOutOfSomeAndEvolve/WeightMs.dat",FileAccess.WRITE)
+	fileEvoAllGen = FileAccess.open("res://output/method_pickSomeOutOfSomeAndEvolve/WeightMs.dat",FileAccess.WRITE)
 	
 	seed(114514)
 	
@@ -173,8 +174,8 @@ func finish_generation():
 	var top_ten = t.get_top_ten_keys()
 	var best_score = t._tallies[top_ten[0]]
 
-	file = FileAccess.open("res://output/method_pickSomeOutOfSomeAndEvolve/WeightMs.dat", FileAccess.READ_WRITE)
-	file.seek_end()
+	fileEvoAllGen = FileAccess.open("res://output/method_pickSomeOutOfSomeAndEvolve/WeightMs.dat", FileAccess.READ_WRITE)
+	fileEvoAllGen.seek_end()
 	var bestWeightsThisGeneration : String = (
 	"Best Model in generation %d, with a score of %f \n" 
 	% [current_generation,best_score])
@@ -183,7 +184,7 @@ func finish_generation():
 			bestWeightsThisGeneration += str(row) + "\n"
 		bestWeightsThisGeneration += "\n"
 	bestWeightsThisGeneration += "\n"
-	file.store_string(bestWeightsThisGeneration)
+	fileEvoAllGen.store_string(bestWeightsThisGeneration)
 
 	# Your evolution / mutation logic
 	var new_models = generate_new_models(top_ten, weightDims)
@@ -194,17 +195,19 @@ func finish_generation():
 	current_model_index = 0
 
 	print("best score:", best_score)
-
-	t._tallies.clear()
-
+	
 	if current_generation >= n:
 
 		simulation_running = false
 		print("Training complete")
-		print(b.w1)
-		print(b.w2)
-		print(b.w3)
+		
+		fileEvoBestGen = FileAccess.open("res://output/method_pickSomeOutOfSomeAndEvolve/bestDatas.dat",FileAccess.READ_WRITE)
+		fileEvoBestGen.seek_end()
+		fileEvoBestGen.store_string(bestWeightsThisGeneration)
+		
 		return
+	
+	t._tallies.clear()
 	
 	start_next_model()
 #endregion
